@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: '1'
+      author: hci2
+      changes:
+        - addColumn:
+            tableName: user
+            columns:
+              - column:
+                  name: created_on
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: modified_on
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: version
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(254) #https://blog.greglow.com/2019/05/17/sql-column-length-storing-email-addresses-sqlserver-database/
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: given_name
+                  type: varchar(60)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: sur_name
+                  type: varchar(60)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: birth_date
+                  type: varchar(10)
+              - column:
+                  name: nationality
+                  type: varchar(30)
+              - column:
+                  name: phone_number
+                  type: varchar(20) #https://stackoverflow.com/a/68457894/11494882
+              - column:
+                  name: type
+                  type: varchar(15)

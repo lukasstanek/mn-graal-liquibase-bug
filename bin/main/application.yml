@@ -1,0 +1,16 @@
+micronaut:
+  application:
+    name: mnGraalLiquibaseBug
+
+datasources:
+  default:
+    url: jdbc:postgresql://postgres:5432/test
+    driverClassName: org.postgresql.Driver
+    username: user
+    password: 'develop'
+    dialect: POSTGRES
+
+liquibase:
+  datasources:
+    default:
+      change-log: 'classpath:db/liquibase-changelog.xml'

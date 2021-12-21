@@ -1,0 +1,65 @@
+databaseChangeLog:
+  - changeSet:
+      id: '1'
+      author: hci2
+      changes:
+        - createTable:
+            tableName: address
+            columns:
+              - column:
+                  name: id
+                  type: varchar(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: created_on
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: modified_on
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: version
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: postal_code
+                  type: varchar(16)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: state_province
+                  type: varchar(15)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: street
+                  type: varchar(60)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: house_number
+                  type: varchar(10)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: '2'
+      author: hci2
+      changes:
+        - addColumn:
+            tableName: user
+            columns:
+              - column:
+                  name: address_id
+                  type: varchar(36)
+        - addForeignKeyConstraint:
+            baseColumnNames: address_id
+            baseTableName: user
+            constraintName: fk_user_address
+            referencedColumnNames: id
+            referencedTableName: address

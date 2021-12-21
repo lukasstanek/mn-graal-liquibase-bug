@@ -1,0 +1,14 @@
+databaseChangeLog:
+  -  changeSet:
+       id:  '1'
+       author:  lukas
+       changes:
+         -  createTable:
+              tableName:  user
+              columns:
+                -  column:
+                     name:  id
+                     type:  varchar(36)
+                     constraints:
+                       primaryKey:  true
+                       nullable:  false

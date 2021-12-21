@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: mn.graal.liquibase.bug
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, graalvm, gradle, http-client, java, java-application, junit, liquibase, logback, netty-server, readme, shade, yaml]

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:13-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: develop
+      POSTGRES_USER: user
+      POSTGRES_DB: test
+  server:
+    image: 21ccc1cd9351
+    depends_on:
+      - "postgres"
+    environment:
+      DATASOURCES_DEFAULT_URL: jdbc:postgresql://postgres:5432/test
